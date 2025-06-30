@@ -16,6 +16,11 @@ public class ScoreBoard {
         this.games = games.stream().filter(g -> !Objects.equals(g.getHomeTeam(), homeTeam) && !Objects.equals(g.getAwayTeam(), awayTeam)).collect(Collectors.toList());
     }
 
+    public void updateGame(Game game) {
+        this.games = games.stream().filter(g -> !Objects.equals(g.getHomeTeam(), game.getHomeTeam()) && !Objects.equals(g.getAwayTeam(), game.getAwayTeam())).collect(Collectors.toList());
+        this.games.add(game);
+    }
+
     public List<Game> getGames() {
         return games;
     }

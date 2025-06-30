@@ -64,9 +64,20 @@ public class AppTest
         ArrayList<Game> games = new ArrayList<Game>();
         games.add(new Game("Poland","England",0,0));
 
+        assertEquals(scoreBoard.getGames().toString(), games.toString());
+    }
+
+    public void testShouldUpdateGameScore(){
+        ScoreBoard scoreBoard = new ScoreBoard();
+        Game game1 = new Game("Poland","England", 0,0);
+        scoreBoard.addGame(game1);
+
+        scoreBoard.updateGame(new Game(game1.getHomeTeam(), game1.getAwayTeam(), 1, 0));
+
+        ArrayList<Game> games = new ArrayList<Game>();
+        games.add(new Game("Poland","England",1,0));
 
         assertEquals(scoreBoard.getGames().toString(), games.toString());
-
     }
 
 }
