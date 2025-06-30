@@ -52,4 +52,21 @@ public class AppTest
 
         assertEquals(scoreBoard.getGames().toString(), games.toString());
     }
+
+    public void testShouldRemoveGameFromScoreboardAfterFinish(){
+        ScoreBoard scoreBoard = new ScoreBoard();
+        Game game1 = new Game("Poland","England", 0,0);
+        Game game2 = new Game("France","Italy",0,0);
+        scoreBoard.addGame(game1);
+        scoreBoard.addGame(game2);
+        scoreBoard.finishGame(game2.getHomeTeam(), game2.getAwayTeam());
+
+        ArrayList<Game> games = new ArrayList<Game>();
+        games.add(new Game("Poland","England",0,0));
+
+
+        assertEquals(scoreBoard.getGames().toString(), games.toString());
+
+    }
+
 }
