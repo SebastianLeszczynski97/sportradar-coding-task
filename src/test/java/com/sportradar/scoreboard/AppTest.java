@@ -6,6 +6,8 @@ import junit.framework.TestSuite;
 
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertThrows;
+
 /**
  * Unit test for simple App.
  */
@@ -42,42 +44,56 @@ public class AppTest
 
     public void testShouldAddGameToScoreBoard() {
         ScoreBoard scoreBoard = new ScoreBoard();
-        Game game = new Game("Poland","England",0,0);
+        Game game = new Game("Poland", "England", 0, 0);
 
         scoreBoard.addGame(game);
 
         ArrayList<Game> games = new ArrayList<Game>();
-        games.add(new Game("Poland","England",0,0));
+        games.add(new Game("Poland", "England", 0, 0));
 
 
         assertEquals(scoreBoard.getGames().toString(), games.toString());
     }
 
-    public void testShouldRemoveGameFromScoreboardAfterFinish(){
+    public void testShouldRemoveGameFromScoreboardAfterFinish() {
         ScoreBoard scoreBoard = new ScoreBoard();
-        Game game1 = new Game("Poland","England", 0,0);
-        Game game2 = new Game("France","Italy",0,0);
+        Game game1 = new Game("Poland", "England", 0, 0);
+        Game game2 = new Game("France", "Italy", 0, 0);
         scoreBoard.addGame(game1);
         scoreBoard.addGame(game2);
         scoreBoard.finishGame(game2.getHomeTeam(), game2.getAwayTeam());
 
         ArrayList<Game> games = new ArrayList<Game>();
-        games.add(new Game("Poland","England",0,0));
+        games.add(new Game("Poland", "England", 0, 0));
 
         assertEquals(scoreBoard.getGames().toString(), games.toString());
     }
 
-    public void testShouldUpdateGameScore(){
+    public void testShouldUpdateGameScore() {
         ScoreBoard scoreBoard = new ScoreBoard();
-        Game game1 = new Game("Poland","England", 0,0);
+        Game game1 = new Game("Poland", "England", 0, 0);
         scoreBoard.addGame(game1);
 
         scoreBoard.updateGame(new Game(game1.getHomeTeam(), game1.getAwayTeam(), 1, 0));
 
         ArrayList<Game> games = new ArrayList<Game>();
-        games.add(new Game("Poland","England",1,0));
+        games.add(new Game("Poland", "England", 1, 0));
 
         assertEquals(scoreBoard.getGames().toString(), games.toString());
     }
 
+    public void testShouldNotAllowToUpdateGameScoreWithNegativeValues() {
+        ScoreBoard scoreBoard = new ScoreBoard();
+        Game game1 = new Game("Poland", "England", 0, 0);
+        scoreBoard.addGame(game1);
+
+        Exception exception = assertThrows(InvalidScoreException.class, () -> {
+            scoreBoard.updateGame(new Game(game1.getHomeTeam(), game1.getAwayTeam(), -1, 0));
+        });
+
+        ArrayList<Game> games = new ArrayList<Game>();
+        games.add(new Game("Poland", "England", 0, 0));
+
+        assertEquals(scoreBoard.getGames().toString(), games.toString());
+    }
 }

@@ -17,6 +17,9 @@ public class ScoreBoard {
     }
 
     public void updateGame(Game game) {
+        if (game.getAwayTeamScore() < 0 || game.getHomeTeamScore() < 0)
+            throw new InvalidScoreException("Score can not be a negative number");
+
         this.games = games.stream().filter(g -> !Objects.equals(g.getHomeTeam(), game.getHomeTeam()) && !Objects.equals(g.getAwayTeam(), game.getAwayTeam())).collect(Collectors.toList());
         this.games.add(game);
     }
