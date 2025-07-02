@@ -60,7 +60,7 @@ public class App {
             displayScoreBoard(scoreBoard);
             displayOptions();
 
-            option = input.nextInt(); // add this
+            option = input.nextInt();
         }
     }
 
