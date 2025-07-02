@@ -35,7 +35,19 @@ public class App {
                     break;
 
                 case 2:
-                    //Update game logic
+                    System.out.println("Please enter home team");
+                    String updatedHomeTeam = input.next();
+                    System.out.println("Please enter away team");
+                    String updatedAwayTeam = input.next();
+                    System.out.println("Please enter home team score");
+                    int updatedHomeTeamScore = input.nextInt();
+                    System.out.println("Please enter away team score");
+                    int updatedAwayTeamScore = input.nextInt();
+                    try {
+                        scoreBoard.updateGame(new Game(updatedHomeTeam, updatedAwayTeam, updatedHomeTeamScore, updatedAwayTeamScore));
+                    } catch (InvalidScoreException exception) {
+                        System.out.println(exception.getMessage());
+                    }
                     break;
                 case 3:
                     System.out.println("Please enter home team");
@@ -60,7 +72,7 @@ public class App {
     }
 
     public static void displayScoreBoard(ScoreBoard scoreBoard) {
-        System.out.println("Updated score: ");
+        System.out.println("Current score: ");
         System.out.println("--------------------------");
         System.out.println(scoreBoard.getCurrentResults());
         System.out.println("--------------------------");
