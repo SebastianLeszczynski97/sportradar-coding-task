@@ -8,6 +8,17 @@ public class Game {
     private int homeTeamScore;
     private int awayTeamScore;
 
+    public Game(String homeTeam, String awayTeam, int homeTeamScore, int awayTeamScore) {
+        this.homeTeam = homeTeam;
+        this.awayTeamScore = awayTeamScore;
+        this.homeTeamScore = homeTeamScore;
+        this.awayTeam = awayTeam;
+    }
+
+    public Game(String homeTeam, String awayTeam) {
+        this(homeTeam, awayTeam, 0,0);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -33,14 +44,6 @@ public class Game {
     public String toScoreFormat() {
         return homeTeam + " - " + awayTeam + " " + homeTeamScore +
                 " : " + awayTeamScore + "\n" ;
-    }
-
-
-    public Game(String homeTeam, String awayTeam, int homeTeamScore, int awayTeamScore) {
-        this.homeTeam = homeTeam;
-        this.awayTeamScore = awayTeamScore;
-        this.homeTeamScore = homeTeamScore;
-        this.awayTeam = awayTeam;
     }
 
     public String getHomeTeam() {

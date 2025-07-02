@@ -8,9 +8,9 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         ScoreBoard scoreBoard = new ScoreBoard();
-        Game firstGame = new Game("Poland", "England", 0, 0);
-        Game secondGame = new Game("Germany", "France", 0, 0);
-        Game thirdGame = new Game("Spain", "Italy", 0, 0);
+        Game firstGame = new Game("Poland", "England");
+        Game secondGame = new Game("Germany", "France");
+        Game thirdGame = new Game("Spain", "Italy");
 
         scoreBoard.addGame(firstGame);
         scoreBoard.addGame(secondGame);
@@ -38,7 +38,11 @@ public class App {
                     //Update game logic
                     break;
                 case 3:
-                    //Add game logic
+                    System.out.println("Please enter home team");
+                    String newHomeTeam = input.next();
+                    System.out.println("Please enter away team");
+                    String newAwayTeam = input.next();
+                    scoreBoard.addGame(new Game(newHomeTeam, newAwayTeam));
                     break;
             }
             displayScoreBoard(scoreBoard);
@@ -51,11 +55,12 @@ public class App {
     public static void displayOptions() {
         System.out.println("To finish game press 1");
         System.out.println("To update game press 2");
+        System.out.println("To add new game press 3");
         System.out.println("To close the application game press 9");
     }
 
     public static void displayScoreBoard(ScoreBoard scoreBoard) {
-        System.out.println("Updated score: \n");
+        System.out.println("Updated score: ");
         System.out.println("--------------------------");
         System.out.println(scoreBoard.getCurrentResults());
         System.out.println("--------------------------");
