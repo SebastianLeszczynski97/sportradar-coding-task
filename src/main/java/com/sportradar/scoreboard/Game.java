@@ -30,7 +30,13 @@ public class Game {
                 '}';
     }
 
-    public Game(String homeTeam, String awayTeam, int homeTeamScore, int awayTeamScore ) {
+    public String toScoreFormat() {
+        return homeTeam + " - " + awayTeam + " " + homeTeamScore +
+                " : " + awayTeamScore + "\n" ;
+    }
+
+
+    public Game(String homeTeam, String awayTeam, int homeTeamScore, int awayTeamScore) {
         this.homeTeam = homeTeam;
         this.awayTeamScore = awayTeamScore;
         this.homeTeamScore = homeTeamScore;

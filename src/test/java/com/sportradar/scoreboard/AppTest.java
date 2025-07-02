@@ -96,4 +96,18 @@ public class AppTest
 
         assertEquals(scoreBoard.getGames().toString(), games.toString());
     }
+
+    public void testShouldReturnFormatedListOfGames() {
+        ScoreBoard scoreBoard = new ScoreBoard();
+        Game game1 = new Game("Poland", "England", 0, 0);
+        Game game2 = new Game("Germany", "France", 0, 0);
+        Game game3 = new Game("Italy", "Spain", 0, 0);
+        scoreBoard.addGame(game1);
+        scoreBoard.addGame(game2);
+        scoreBoard.addGame(game3);
+
+        String expectedFormatedListOfGames = "Poland - England 0 : 0\n\nGermany - France 0 : 0\n\nItaly - Spain 0 : 0\n" ;
+
+        assertEquals(expectedFormatedListOfGames, scoreBoard.getCurrentResults());
+    }
 }

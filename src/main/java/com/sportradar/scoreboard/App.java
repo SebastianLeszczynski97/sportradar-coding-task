@@ -10,8 +10,15 @@ public class App
     {
         ScoreBoard scoreBoard = new ScoreBoard();
         Game firstGame = new Game("Poland","England",0,0);
-        scoreBoard.addGame(firstGame);
+        Game secondGame = new Game("Germany","France",0,0);
+        Game thirdGame = new Game("Spain","Italy",0,0);
 
-        System.out.println(scoreBoard.getGames().toString());
+        scoreBoard.addGame(firstGame);
+        scoreBoard.addGame(secondGame);
+        scoreBoard.addGame(thirdGame);
+
+        String results = scoreBoard.getCurrentResults();
+
+        System.out.println(results);
     }
 }

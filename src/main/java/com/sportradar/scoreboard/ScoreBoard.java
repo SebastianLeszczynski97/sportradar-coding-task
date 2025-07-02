@@ -27,4 +27,8 @@ public class ScoreBoard {
     public List<Game> getGames() {
         return games;
     }
+
+    public String getCurrentResults() {
+       return games.stream().map(Game::toScoreFormat).collect(Collectors.joining("\n"));
+    }
 }
