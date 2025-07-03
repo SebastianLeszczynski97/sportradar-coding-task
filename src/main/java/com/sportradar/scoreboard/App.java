@@ -76,7 +76,7 @@ public class App {
     }
 
     private static void displayScoreBoard(ScoreBoard scoreBoard) {
-        System.out.println("Current score: ");
+        System.out.println("CURRENT FOOTBALL WORLD CUP RESULTS: ");
         System.out.println("--------------------------");
         System.out.println(scoreBoard.getCurrentResults());
         System.out.println("--------------------------");
