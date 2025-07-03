@@ -42,8 +42,8 @@ public class Game {
     }
 
     public String toScoreFormat() {
-        return homeTeam + " - " + awayTeam + " " + homeTeamScore +
-                " : " + awayTeamScore + "\n" ;
+        return homeTeam + " " + homeTeamScore + " - " + awayTeam +
+                " " + awayTeamScore + "\n" ;
     }
 
     public String getHomeTeam() {

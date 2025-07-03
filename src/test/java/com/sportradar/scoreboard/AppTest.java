@@ -106,7 +106,7 @@ public class AppTest
         scoreBoard.addGame(game2);
         scoreBoard.addGame(game3);
 
-        String expectedFormatedListOfGames = "Poland - England 0 : 0\n\nGermany - France 0 : 0\n\nItaly - Spain 0 : 0\n" ;
+        String expectedFormatedListOfGames = "Poland 0 - England 0\n\nGermany 0 - France 0\n\nItaly 0 - Spain 0\n" ;
 
         assertEquals(expectedFormatedListOfGames, scoreBoard.getCurrentResults());
     }
