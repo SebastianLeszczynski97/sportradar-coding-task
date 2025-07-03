@@ -1,5 +1,10 @@
 package com.sportradar.scoreboard;
 
+import com.sportradar.scoreboard.exceptions.InvalidScoreException;
+import com.sportradar.scoreboard.exceptions.InvalidTeamException;
+import com.sportradar.scoreboard.scoreboard.Game;
+import com.sportradar.scoreboard.scoreboard.ScoreBoard;
+
 import java.util.Scanner;
 
 /**
@@ -58,7 +63,11 @@ public class App {
                     String newHomeTeam = input.next();
                     System.out.println("Please enter away team");
                     String newAwayTeam = input.next();
-                    scoreBoard.addGame(new Game(newHomeTeam, newAwayTeam));
+                    try{
+                        scoreBoard.addGame(new Game(newHomeTeam, newAwayTeam));
+                    } catch (InvalidTeamException exception) {
+                        System.out.println(exception.getMessage());
+                    }
                     break;
             }
             displayScoreBoard(scoreBoard);
