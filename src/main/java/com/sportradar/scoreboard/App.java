@@ -72,7 +72,7 @@ public class App {
         System.out.println("To finish game press 1");
         System.out.println("To update game press 2");
         System.out.println("To add new game press 3");
-        System.out.println("To close the application game press 9");
+        System.out.println("To close the application press 9");
     }
 
     private static void displayScoreBoard(ScoreBoard scoreBoard) {
